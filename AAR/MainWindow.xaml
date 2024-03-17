@@ -1,20 +1,24 @@
 ﻿<Window x:Class="AAR.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:AAR"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Viewbox Stretch="Uniform">
-        <!--Login Form-->
-        <StackPanel x:Name="LoginPanel" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBox x:Name="UsernameTextBox" Margin="5" Text="username" MaxLength="9"/>
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
+        Title="MainWindow" Height="450" Width="800"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}">
+
+    <Window.Resources>
+        <local:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </Window.Resources>
+    
+    <Grid>
+        <!-- Login Form -->
+        <StackPanel Visibility="{Binding IsLoginFormVisible, Converter={StaticResource BooleanToVisibilityConverter}}" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBox x:Name="UsernameTextBox" Margin="5" MaxLength="9"/>
             <PasswordBox x:Name="PasswordBox" Margin="5" MaxLength="9"/>
-            <Button x:Name="Login" Click="Login_Click" Margin="5"/>
+            <Button x:Name="Login" Click="Login_Click" Margin="5">Login</Button>
         </StackPanel>
-        
-        <!--Account info-->        
-        
-    </Viewbox>
+
+        <!-- Trip Information -->
+        <StackPanel Visibility="{Binding IsTripInfoVisible, Converter={StaticResource BooleanToVisibilityConverter}}" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock x:Name="TripInfoTextBlock"/>
+        </StackPanel>
+    </Grid>
 </Window>
