@@ -20,5 +20,10 @@ namespace AAR
         {
             InitializeComponent();
         }
+
+        private void Login_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

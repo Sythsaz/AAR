@@ -6,7 +6,15 @@
         xmlns:local="clr-namespace:AAR"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
+    <Viewbox Stretch="Uniform">
+        <!--Login Form-->
+        <StackPanel x:Name="LoginPanel" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBox x:Name="UsernameTextBox" Margin="5" Text="username" MaxLength="9"/>
+            <PasswordBox x:Name="PasswordBox" Margin="5" MaxLength="9"/>
+            <Button x:Name="Login" Click="Login_Click" Margin="5"/>
+        </StackPanel>
+        
+        <!--Account info-->        
+        
+    </Viewbox>
 </Window>
